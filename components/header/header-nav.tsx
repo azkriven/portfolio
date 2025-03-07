@@ -56,7 +56,7 @@ const DATA = {
 
 export function HeaderNav() {
     return (
-        <div>
+        <nav>
             <TooltipProvider>
                 <Dock direction="middle">
                     <DockIcon>
@@ -133,6 +133,6 @@ export function HeaderNav() {
                     </DockIcon>
                 </Dock>
             </TooltipProvider>
-        </div>
+        </nav>
     );
 }

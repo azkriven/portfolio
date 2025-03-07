@@ -14,7 +14,7 @@ interface BlurRevealProps {
 
 export function BlurReveal({
     children,
-    direction = "left",
+    direction = "right",
     blurStrength = 10,
     duration = 1,
     delay = 2,

@@ -1,7 +1,8 @@
+import Header from "@/components/header";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/header";
+import { Spotlight } from "@/components/spotlight";
 import IntroScreen from "@/components/intro/intro-screen";
 
 const geistSans = Geist({
@@ -29,8 +30,10 @@ export default function RootLayout({
             <body
                 className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white`}
             >
-                <Header />
-                {children}
+                <Spotlight>
+                    <Header />
+                    {children}
+                </Spotlight>
                 <IntroScreen animateOut />
             </body>
         </html>

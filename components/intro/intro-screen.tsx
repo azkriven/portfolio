@@ -187,7 +187,7 @@ export default function IntroScreen({ animateOut }: { animateOut?: boolean }) {
             {isVisible && (
                 <motion.div
                     className={cn(
-                        "flex flex-col items-center justify-center gap-1 overflow-hidden bg-black py-4 md:gap-3 h-screen w-screen z-50 absolute top-0 bottom-0 left-0 right-0"
+                        "flex flex-col items-center justify-center gap-1 overflow-hidden bg-black py-4 md:gap-3 h-screen w-full z-50 absolute top-0 bottom-0 left-0 right-0"
                     )}
                     exit={{ opacity: 0, transition: { duration: 0.5 } }}
                 >
