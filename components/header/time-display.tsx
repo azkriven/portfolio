@@ -4,10 +4,12 @@ import { useEffect, useState } from "react";
 type TimeDisplayProps = {
     timeZone: string;
     locale?: string; // Optionally allow locale, defaulting to 'en-GB'
+    className?: string;
 };
 export default function TimeDisplay({
     timeZone,
     locale = "en-GB",
+    className,
 }: TimeDisplayProps) {
     const [currentTime, setCurrentTime] = useState("");
 
@@ -33,5 +35,5 @@ export default function TimeDisplay({
         return () => clearInterval(intervalId);
     }, [timeZone, locale]);
 
-    return <>{currentTime}</>;
+    return <p className={className}>{currentTime}</p>;
 }

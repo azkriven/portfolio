@@ -81,7 +81,7 @@ export function Spotlight({
             className={cn("group relative rounded-[inherit]", className)}
         >
             <motion.div
-                className="pointer-events-none absolute inset-0 rounded-[inherit] bg-border duration-300 group-hover:opacity-100"
+                className="pointer-events-none absolute inset-0 rounded-[inherit] bg-border duration-300 group-hover:opacity-100 opacity-0 md:opacity-100"
                 style={{
                     background: useMotionTemplate`
           radial-gradient(${gradientSize}px circle at ${mouseX}px ${mouseY}px,

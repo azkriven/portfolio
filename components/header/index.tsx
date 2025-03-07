@@ -5,10 +5,13 @@ import TimeDisplay from "./time-display";
 
 export default function Header() {
     return (
-        <BlurReveal className="p-8 flex items-center justify-between">
-            <p>{person.location}</p>
+        <BlurReveal className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full p-8 flex items-center justify-center md:relative md:justify-between">
+            <p className="hidden md:flex">{person.location}</p>
             <HeaderNav />
-            <TimeDisplay timeZone={person.location} />
+            <TimeDisplay
+                className="hidden md:flex"
+                timeZone={person.location}
+            />
         </BlurReveal>
     );
 }
