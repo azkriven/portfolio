@@ -1,7 +1,7 @@
-import { BlurReveal } from "../animations/blur";
-import { Dock, DockDemo } from "./dock";
-import TimeDisplay from "./time-display";
 import { person } from "@/resources/content";
+import { BlurReveal } from "../animations/blur";
+import { HeaderNav } from "./header-nav";
+import TimeDisplay from "./time-display";
 
 export default function Header() {
     return (
@@ -11,7 +11,7 @@ export default function Header() {
             className="p-8 flex items-center justify-between"
         >
             <p>{person.location}</p>
-            <DockDemo />
+            <HeaderNav />
             <TimeDisplay timeZone={person.location} />
         </BlurReveal>
     );

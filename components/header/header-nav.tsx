@@ -54,7 +54,7 @@ const DATA = {
     blog: { href: "/", icon: FeatherIcon, label: "Blogs" },
 };
 
-export function DockDemo() {
+export function HeaderNav() {
     return (
         <div>
             <TooltipProvider>
