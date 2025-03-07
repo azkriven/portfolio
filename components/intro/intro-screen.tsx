@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import WaveReveal from "./wave-reveal";
 import { cn } from "@/lib/utils";
+import { AnimatePresence, motion } from "framer-motion";
 
 export interface CircleProps {
     height?: string;
@@ -165,27 +166,42 @@ function LineFive({ className, animationEnd }: LineProps) {
 
 export default function IntroScreen({ animateOut }: { animateOut?: boolean }) {
     const [animationEnd, setAnimationEnd] = useState(false);
+    const [isVisible, setIsVisible] = useState(true);
+
     useEffect(() => {
         if (!animateOut) return;
-        const timer = setTimeout(() => setAnimationEnd(true), 2000);
-        return () => clearTimeout(timer);
+
+        // Wait 2 seconds before triggering exit animations
+        const exitTimer = setTimeout(() => {
+            setAnimationEnd(true);
+            // Start fade out slightly later to maintain text visibility
+            const hideTimer = setTimeout(() => setIsVisible(false), 500);
+            return () => clearTimeout(hideTimer);
+        }, 1500);
+
+        return () => clearTimeout(exitTimer);
     }, [animateOut]);
 
     return (
-        <div
-            className={cn(
-                "flex flex-col items-center justify-center gap-1 overflow-hidden bg-black py-4 md:gap-3 h-full"
+        <AnimatePresence>
+            {isVisible && (
+                <motion.div
+                    className={cn(
+                        "flex flex-col items-center justify-center gap-1 overflow-hidden bg-black py-4 md:gap-3 h-screen w-screen z-50 absolute top-0 bottom-0 left-0 right-0"
+                    )}
+                    exit={{ opacity: 0, transition: { duration: 0.5 } }}
+                >
+                    {[LineOne, LineTwo, LineThree, LineFour, LineFive].map(
+                        (LineComponent, index) => (
+                            <LineComponent
+                                key={index}
+                                className="flex duration-1000 ease-in-out fill-mode-forwards"
+                                animationEnd={animationEnd}
+                            />
+                        )
+                    )}
+                </motion.div>
             )}
-        >
-            {[LineOne, LineTwo, LineThree, LineFour, LineFive].map(
-                (LineComponent, index) => (
-                    <LineComponent
-                        key={index}
-                        className="flex duration-1000 ease-in-out fill-mode-forwards"
-                        animationEnd={animationEnd}
-                    />
-                )
-            )}
-        </div>
+        </AnimatePresence>
     );
 }
