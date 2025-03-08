@@ -22,6 +22,7 @@ export default function HomeBlog() {
                     <Link
                         href={blog.href}
                         key={blog.title}
+                        target="_blank"
                         className="border border-white/0 hover:border-white/30 p-2 w-fit rounded-lg"
                     >
                         <h4 className="font-semibold text-xl">{blog.title}</h4>
