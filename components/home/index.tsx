@@ -7,7 +7,7 @@ import Projects from "../projects";
 
 export default function Hero() {
     return (
-        <BlurReveal className="flex flex-col justify-center px-4 md:px-8 lg:px-16 gap-y-4 md:gap-y-5">
+        <BlurReveal className="flex flex-col justify-center px-4 md:px-8 lg:px-16 gap-y-4 md:gap-y-5 pb-40">
             <h1 className="font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight">
                 Design engineer and builder
             </h1>
@@ -27,9 +27,8 @@ export default function Hero() {
                 <ArrowRightIcon className="transition-transform duration-300 group-hover:translate-x-1" />
             </Button>
 
-            <HomeBlog />
-
             <Projects />
+            <HomeBlog />
         </BlurReveal>
     );
 }

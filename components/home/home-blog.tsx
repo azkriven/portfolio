@@ -16,7 +16,7 @@ const blogs = [
 export default function HomeBlog() {
     return (
         <div>
-            <h3 className="text-3xl font-bold mb-12">Latest from the blog</h3>
+            <h3 className="text-3xl font-bold mb-12">Blogs</h3>
             <div className="flex gap-5">
                 {blogs.map((blog) => (
                     <Link

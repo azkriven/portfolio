@@ -5,7 +5,7 @@ import TimeDisplay from "./time-display";
 
 export default function Header() {
     return (
-        <BlurReveal className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full p-8 flex items-center justify-center  md:justify-between">
+        <BlurReveal className="z-50 fixed bottom-0 left-1/2 -translate-x-1/2 w-full p-8 flex items-center justify-center  md:justify-between">
             <p className="hidden md:flex">{person.location}</p>
             <HeaderNav />
             <TimeDisplay

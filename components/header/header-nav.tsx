@@ -72,7 +72,7 @@ const DATA = {
 export function HeaderNav() {
     const path = usePathname();
     return (
-        <nav>
+        <nav className="bg-black rounded-xl">
             <TooltipProvider>
                 <Dock direction="middle">
                     <Tooltip>
