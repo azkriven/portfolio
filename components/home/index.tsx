@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRightIcon } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import HomeBlog from "./home-blog";
+import Projects from "../projects";
 
 export default function Hero() {
     return (
@@ -27,6 +28,8 @@ export default function Hero() {
             </Button>
 
             <HomeBlog />
+
+            <Projects />
         </BlurReveal>
     );
 }
