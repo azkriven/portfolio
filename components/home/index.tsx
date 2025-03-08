@@ -15,7 +15,7 @@ export default function Hero() {
                 user experiences. After hours, I build my own projects.
             </p>
             <Button className="group w-fit px-1.5 flex gap-5 rounded-full border border-white/30 hover:border-white/50 animate-border-pulse transition-all duration-300 hover:scale-105 mb-10">
-                <Avatar className="transition-transform duration-300 group-hover:scale-110">
+                <Avatar>
                     <AvatarImage
                         src="https://github.com/azkriven.png"
                         alt="profile"
