@@ -16,8 +16,8 @@ export function BlurReveal({
     children,
     direction = "right",
     blurStrength = 10,
-    duration = 1,
-    delay = 2,
+    duration = 0.5,
+    delay = 0,
     className = "",
 }: BlurRevealProps) {
     const getClipPath = (): string => {

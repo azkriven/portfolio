@@ -18,7 +18,7 @@ interface MagicCardProps {
 export function Spotlight({
     children,
     className,
-    gradientSize = 500,
+    gradientSize = 200,
     gradientColor = "#262626",
     gradientOpacity = 0.8,
     gradientFrom = "#9E7AFF",

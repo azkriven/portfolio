@@ -1,6 +1,6 @@
 import { BlurReveal } from "@/components/animations/blur";
-import { ArrowRightIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ArrowRightIcon } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 
 export default function Hero() {
@@ -15,8 +15,8 @@ export default function Hero() {
                 <br className="hidden md:block" />
                 user experiences. After hours, I build my own projects.
             </p>
-            <Button className="w-fit flex gap-5 rounded-full border border-white/30">
-                <Avatar>
+            <Button className="group w-fit px-1.5 flex gap-5 rounded-full border border-white/30 hover:border-white/50 animate-border-pulse transition-all duration-300 hover:scale-105 mb-10">
+                <Avatar className="transition-transform duration-300 group-hover:scale-110">
                     <AvatarImage
                         src="https://github.com/azkriven.png"
                         alt="profile"
@@ -24,7 +24,7 @@ export default function Hero() {
                     <AvatarFallback className="text-black">E</AvatarFallback>
                 </Avatar>
                 About me
-                <ArrowRightIcon />
+                <ArrowRightIcon className="transition-transform duration-300 group-hover:translate-x-1" />
             </Button>
         </BlurReveal>
     );
