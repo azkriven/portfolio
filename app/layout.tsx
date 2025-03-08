@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Spotlight } from "@/components/spotlight";
-import IntroScreen from "@/components/intro/intro-screen";
+import { Footer } from "@/components/footer";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -33,6 +33,7 @@ export default function RootLayout({
                 <Spotlight springStiffness={40} springDamping={20}>
                     <Header />
                     {children}
+                    <Footer />
                 </Spotlight>
                 {/* <IntroScreen animateOut /> */}
             </body>
