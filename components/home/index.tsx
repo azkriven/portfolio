@@ -2,6 +2,7 @@ import { BlurReveal } from "@/components/animations/blur";
 import { Button } from "@/components/ui/button";
 import { ArrowRightIcon } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import HomeBlog from "./home-blog";
 
 export default function Hero() {
     return (
@@ -26,6 +27,8 @@ export default function Hero() {
                 About me
                 <ArrowRightIcon className="transition-transform duration-300 group-hover:translate-x-1" />
             </Button>
+
+            <HomeBlog />
         </BlurReveal>
     );
 }

@@ -1,9 +1,9 @@
-import Hero from "@/components/home/hero";
+import Home from "@/components/home";
 
-export default function Home() {
+export default function HomePage() {
     return (
         <main className="max-w-5xl mx-auto p-8 min-h-screen h-[200vh]">
-            <Hero />
+            <Home />
         </main>
     );
 }

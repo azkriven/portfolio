@@ -1,6 +1,11 @@
 "use client";
 
-import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
+import {
+    motion,
+    useMotionTemplate,
+    useMotionValue,
+    useSpring,
+} from "framer-motion";
 import React, { useCallback, useEffect, useRef } from "react";
 
 import { cn } from "@/lib/utils";
@@ -13,6 +18,8 @@ interface MagicCardProps {
     gradientOpacity?: number;
     gradientFrom?: string;
     gradientTo?: string;
+    springStiffness?: number;
+    springDamping?: number;
 }
 
 export function Spotlight({
@@ -23,19 +30,29 @@ export function Spotlight({
     gradientOpacity = 0.8,
     gradientFrom = "#9E7AFF",
     gradientTo = "#FE8BBB",
+    springStiffness = 250,
+    springDamping = 30,
 }: MagicCardProps) {
     const cardRef = useRef<HTMLDivElement>(null);
     const mouseX = useMotionValue(-gradientSize);
     const mouseY = useMotionValue(-gradientSize);
 
+    // Create spring-animated versions of mouse positions
+    const springMouseX = useSpring(mouseX, {
+        stiffness: springStiffness,
+        damping: springDamping,
+    });
+    const springMouseY = useSpring(mouseY, {
+        stiffness: springStiffness,
+        damping: springDamping,
+    });
+
     const handleMouseMove = useCallback(
         (e: MouseEvent) => {
             if (cardRef.current) {
                 const { left, top } = cardRef.current.getBoundingClientRect();
-                const clientX = e.clientX;
-                const clientY = e.clientY;
-                mouseX.set(clientX - left);
-                mouseY.set(clientY - top);
+                mouseX.set(e.clientX - left);
+                mouseY.set(e.clientY - top);
             }
         },
         [mouseX, mouseY]
@@ -84,7 +101,7 @@ export function Spotlight({
                 className="pointer-events-none absolute inset-0 rounded-[inherit] bg-border duration-300 group-hover:opacity-100 opacity-0 md:opacity-100"
                 style={{
                     background: useMotionTemplate`
-          radial-gradient(${gradientSize}px circle at ${mouseX}px ${mouseY}px,
+          radial-gradient(${gradientSize}px circle at ${springMouseX}px ${springMouseY}px,
           ${gradientFrom}, 
           ${gradientTo}, 
           hsl(var(--border)) 100%
@@ -97,7 +114,7 @@ export function Spotlight({
                 className="pointer-events-none absolute inset-px rounded-[inherit] opacity-0 transition-opacity duration-300 group-hover:opacity-100 -z-0"
                 style={{
                     background: useMotionTemplate`
-            radial-gradient(${gradientSize}px circle at ${mouseX}px ${mouseY}px, ${gradientColor}, transparent 100%)
+            radial-gradient(${gradientSize}px circle at ${springMouseX}px ${springMouseY}px, ${gradientColor}, transparent 100%)
           `,
                     opacity: gradientOpacity,
                 }}

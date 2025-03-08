@@ -30,7 +30,7 @@ export default function RootLayout({
             <body
                 className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white relative`}
             >
-                <Spotlight>
+                <Spotlight springStiffness={40} springDamping={20}>
                     <Header />
                     {children}
                 </Spotlight>
