@@ -111,7 +111,10 @@ export function HeaderNav() {
                                 }
                                 className="border border-white/0 hover:bg-transparent hover:border-white hover:text-white"
                             >
-                                <data.icon /> <span>{data.label}</span>
+                                <data.icon />{" "}
+                                <span className="hidden md:inline">
+                                    {data.label}
+                                </span>
                             </Button>
                         </Link>
                     ))}
