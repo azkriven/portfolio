@@ -2,7 +2,7 @@ import Home from "@/components/home";
 
 export default function HomePage() {
     return (
-        <main className="max-w-5xl mx-auto p-8 min-h-screen h-[200vh]">
+        <main className="container flex items-center justify-center mx-auto p-8 min-h-screen">
             <Home />
         </main>
     );
