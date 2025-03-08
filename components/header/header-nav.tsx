@@ -34,7 +34,12 @@ const DATA = {
     navigation: [
         { href: "/about", icon: UserCircleIcon, label: "About" },
         { href: "/work", icon: FoldersIcon, label: "Work" },
-        { href: "/blog", icon: FeatherIcon, label: "Blog" },
+        {
+            href: "https://portfolio-blog-starter.vercel.app/",
+            icon: FeatherIcon,
+            label: "Blog",
+            external: true,
+        },
         { href: "/contact", icon: PhoneCallIcon, label: "Contact" },
     ],
     contact: {
@@ -95,7 +100,11 @@ export function HeaderNav() {
                     </Tooltip>
                     <Separator orientation="vertical" className="h-full" />
                     {DATA.navigation.map((data) => (
-                        <Link key={data.label} href={data.href}>
+                        <Link
+                            key={data.label}
+                            href={data.href}
+                            target={data.external ? "_blank" : "_parent"}
+                        >
                             <Button
                                 variant={
                                     path === data.href ? "default" : "ghost"
